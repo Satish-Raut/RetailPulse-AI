@@ -1,0 +1,112 @@
+
+# ==============================
+# Python
+# ==============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+
+# ==============================
+# Environment Variables & Secrets
+# ==============================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+credentials.json
+
+# ==============================
+# FastAPI / Backend
+# ==============================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ==============================
+# React / Node.js
+# ==============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+dist/
+build/
+.vite/
+
+# ==============================
+# Jupyter Notebooks
+# ==============================
+.ipynb_checkpoints/
+
+# ==============================
+# Machine Learning / MLflow
+# ==============================
+mlruns/
+mlartifacts/
+models/
+checkpoints/
+*.pkl
+*.joblib
+*.h5
+*.onnx
+
+# ==============================
+# Datasets & Generated Data
+# ==============================
+data/
+datasets/
+outputs/
+*.parquet
+
+# ==============================
+# Databricks
+# ==============================
+.databricks/
+.bundle/
+
+# ==============================
+# Terraform
+# ==============================
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+terraform.tfvars
+terraform.tfvars.json
+crash.log
+override.tf
+override.tf.json
+
+# ==============================
+# Docker
+# ==============================
+*.log
+
+# ==============================
+# Jenkins
+# ==============================
+jenkins_home/
+
+# ==============================
+# IDE & Operating System
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
