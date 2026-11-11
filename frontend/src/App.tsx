@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Layout from './components/Layout'
+import LandingPage from './pages/LandingPage'
 import DashboardPage from './pages/DashboardPage'
 import AnalyticsChatPage from './pages/AnalyticsChatPage'
 import { PipelineProvider } from './context/PipelineContext'
@@ -12,8 +13,9 @@ function App() {
       <Toaster position="top-right" />
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<LandingPage />} />
           <Route element={<Layout />}>
-            <Route path="/" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/analytics" element={<AnalyticsChatPage />} />
           </Route>
         </Routes>

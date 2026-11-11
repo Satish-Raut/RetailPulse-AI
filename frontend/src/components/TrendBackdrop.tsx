@@ -31,13 +31,13 @@ function TrendBackdrop() {
       <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
         <defs>
           <linearGradient id="trendAreaFill" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.28" />
-            <stop offset="100%" stopColor="var(--accent)" stopOpacity="0" />
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.14" />
+            <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
           </linearGradient>
           <linearGradient id="trendStroke" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.25" />
-            <stop offset="70%" stopColor="var(--accent)" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="var(--accent)" stopOpacity="1" />
+            <stop offset="0%" stopColor="#10b981" stopOpacity="0.3" />
+            <stop offset="60%" stopColor="#10b981" stopOpacity="0.85" />
+            <stop offset="100%" stopColor="#f59e0b" stopOpacity="0.95" />
           </linearGradient>
         </defs>
 
@@ -54,10 +54,10 @@ function TrendBackdrop() {
 
         {!reducedMotion && (
           <g>
-            <circle r="9" fill="var(--accent)" opacity="0.35" className="trend-backdrop-glow">
+            <circle r="8" fill="#10b981" opacity="0.35" className="trend-backdrop-glow">
               <animateMotion dur="7s" repeatCount="indefinite" path={PATH} rotate="auto" />
             </circle>
-            <circle r="3.5" fill="var(--accent)">
+            <circle r="3.5" fill="#10b981">
               <animateMotion dur="7s" repeatCount="indefinite" path={PATH} rotate="auto" />
             </circle>
           </g>

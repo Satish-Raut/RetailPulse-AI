@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom'
+import brandLogo from '../assets/retailpulse-ai-logo.png'
 
 function navLinkClass({ isActive }: { isActive: boolean }) {
   return isActive ? 'nav-link nav-link--active' : 'nav-link'
@@ -9,10 +10,12 @@ function Layout() {
     <div className="app-shell">
       <nav className="topbar">
         <div className="brand">
-          <span className="brand-mark">AaiTech</span>
+          <NavLink to="/" className="retailpulse-brand" aria-label="RetailPulse AI home">
+            <img src={brandLogo} alt="RetailPulse AI" className="brand-logo-img" />
+          </NavLink>
         </div>
         <div className="nav-links">
-          <NavLink to="/" end className={navLinkClass}>
+          <NavLink to="/dashboard" className={navLinkClass}>
             Dashboard
           </NavLink>
           <NavLink to="/analytics" className={navLinkClass}>

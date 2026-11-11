@@ -82,51 +82,63 @@ function ForecastChart({ productId, storeId }: ForecastChartProps) {
   return (
     <div className="panel chart-panel">
       <h2>Forecast vs. actuals</h2>
-      <ResponsiveContainer width="100%" height={360}>
-        <AreaChart data={points} margin={{ top: 26, right: 24, left: 0, bottom: 0 }}>
+      <ResponsiveContainer width="100%" height={400}>
+        <AreaChart data={points} margin={{ top: 26, right: 28, left: 0, bottom: 6 }}>
           <defs>
             <linearGradient id="actualFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#22c55e" stopOpacity={0.35} />
-              <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
+              <stop offset="5%" stopColor="#10b981" stopOpacity={0.20} />
+              <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
             </linearGradient>
             <linearGradient id="predictedFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3} />
+              <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.20} />
               <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
-          <XAxis dataKey="date" stroke="var(--text)" fontSize={12} />
+          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <XAxis
+            dataKey="date"
+            stroke="#9ca3af"
+            fontSize={13}
+            tickLine={false}
+            axisLine={{ stroke: 'rgba(255,255,255,0.1)' }}
+          />
           <YAxis
-            stroke="var(--text)"
-            fontSize={12}
-            label={{ value: 'Units sold', angle: -90, position: 'insideLeft', fill: 'var(--text)' }}
+            stroke="#9ca3af"
+            fontSize={13}
+            tickLine={false}
+            axisLine={false}
+            label={{ value: 'Units sold', angle: -90, position: 'insideLeft', fill: '#9ca3af', fontSize: 13 }}
           />
           <Tooltip
             contentStyle={{
-              background: 'var(--code-bg)',
-              border: '1px solid var(--border)',
-              borderRadius: 8,
-              color: 'var(--text-h)',
+              background: '#15181f',
+              border: '1px solid rgba(255,255,255,0.14)',
+              borderRadius: 10,
+              color: '#f9fafb',
+              fontSize: 14.5,
+              boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
             }}
           />
-          <Legend />
+          <Legend
+            wrapperStyle={{ fontSize: 14, color: '#9ca3af', paddingTop: 10 }}
+          />
           {boundaryDate && (
             <ReferenceLine
               x={boundaryDate}
-              stroke="var(--accent)"
+              stroke="#f59e0b"
               strokeDasharray="4 4"
-              label={{ value: 'Today', position: 'top', fill: 'var(--accent)' }}
+              label={{ value: 'Today', position: 'top', fill: '#f59e0b', fontSize: 13 }}
             />
           )}
           <Area
             type="monotone"
             dataKey="actual_units"
             name="Actual"
-            stroke="#22c55e"
+            stroke="#10b981"
             strokeWidth={2.5}
             fill="url(#actualFill)"
             dot={false}
-            activeDot={{ r: 4 }}
+            activeDot={{ r: 4, fill: '#10b981' }}
             connectNulls={false}
           />
           <Area
@@ -138,7 +150,7 @@ function ForecastChart({ productId, storeId }: ForecastChartProps) {
             strokeDasharray="6 4"
             fill="url(#predictedFill)"
             dot={false}
-            activeDot={{ r: 4 }}
+            activeDot={{ r: 4, fill: '#f59e0b' }}
             connectNulls={false}
           />
         </AreaChart>

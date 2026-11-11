@@ -42,9 +42,9 @@ function DashboardPage() {
     <div className="dashboard">
       <header className="dashboard-header">
         <div className="header-top-row">
-          <h1>Sales AI Forecast Tool</h1>
+          <h1>RetailPulse AI</h1>
         </div>
-        <p className="subtitle">Databricks-powered forecasts and explanations</p>
+        <p className="subtitle">Retail demand forecasts and business analytics</p>
         <TrendBackdrop />
       </header>
 
@@ -56,13 +56,11 @@ function DashboardPage() {
           <p>Forecasts and analytics will be available again after the pipeline finishes.</p>
         </div>
       ) : (
-        <KPIBar key={refreshKey} />
-      )}
-
-      <PipelineControl />
-
-      {!isPipelineBusy && (
         <>
+          <KPIBar key={refreshKey} />
+
+          <PipelineControl />
+
           <ProductStoreSelector
             products={products}
             stores={stores}
