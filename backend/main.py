@@ -192,6 +192,7 @@ def get_forecast(
     records = [ForecastRecord(**row) for row in rows]
     return ForecastListResponse(count=len(records), results=records)
 
+
 # NOTE : This particular endpoint is basically returns the 30-days forcasted data
 @app.get(
     "/forecast/trend/all",
@@ -224,6 +225,7 @@ def get_forecast_trend_all() -> List[ProductForecastGroup]:
     return groups
 
 
+# NOTE : This Endpoint returns the AI explanation about the forcast 
 @app.post(
     "/forecast/explain",
     response_model=ExplainResponse,
@@ -316,7 +318,7 @@ def explain_forecast(request: ExplainRequest) -> ExplainResponse:
         model_version=str(context["model_version"]),
     )
 
-
+# NOTE : This Particular End point simply returns the products from the product table in Silver layer
 @app.get(
     "/products",
     response_model=List[Product],
@@ -335,7 +337,7 @@ def get_products() -> List[Product]:
 
     return [Product(**row) for row in rows]
 
-
+# NOTE : This Particular End point simply returns the Stores from the stores table in Silver layer
 @app.get(
     "/stores",
     response_model=List[Store],
@@ -354,7 +356,7 @@ def get_stores() -> List[Store]:
 
     return [Store(**row) for row in rows]
 
-
+# NOTE : This particular endpoint is bassically allows to chat with the llm
 @app.post(
     "/chat",
     response_model=ChatResponse,
@@ -385,7 +387,7 @@ def chat(request: ChatRequest) -> ChatResponse:
 
     return ChatResponse(**result)
 
-
+# NOTE : This particaular enpoint handles the most asked questions to the LLM
 @app.post(
     "/chat/quick",
     response_model=ChatResponse,
@@ -416,6 +418,7 @@ def chat_quick(request: QuickActionRequest) -> ChatResponse:
     return ChatResponse(**result)
 
 
+# NOTE : This particular API Endpoint returns the details of the predifinde KPI'S in analytics.py
 @app.get(
     "/kpis",
     response_model=KPISummary,
@@ -516,7 +519,7 @@ def _trigger_pipeline_job() -> int:
             detail="Failed to trigger the pipeline job. Check server logs for details.",
         )
 
-
+# NOTE : This Endpoint trigger the data pipeline present in DataBricks
 @app.post(
     "/pipeline/trigger",
     response_model=PipelineTriggerResponse,
@@ -533,6 +536,7 @@ def trigger_pipeline() -> PipelineTriggerResponse:
     return PipelineTriggerResponse(run_id=run_id)
 
 
+# NOTE : This Endpoint is basically checks the status of data pipeline
 @app.get(
     "/pipeline/status/{run_id}",
     response_model=PipelineStatusResponse,
@@ -558,7 +562,7 @@ def get_pipeline_status(run_id: int) -> PipelineStatusResponse:
 
     return PipelineStatusResponse(run_id=run_id, **status)
 
-
+# NOTE : This Endpoint basically allow use to upload the files and after that the pipelibe get triggered automatically
 @app.post(
     "/pipeline/upload-and-trigger",
     response_model=PipelineUploadAndTriggerResponse,
