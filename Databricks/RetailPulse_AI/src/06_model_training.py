@@ -12,7 +12,7 @@
 # MAGIC ### Objective
 # MAGIC
 # MAGIC This notebook trains **one global gradient boosting model** on
-# MAGIC `sales_ai.gold.sales_features` — not one model per category. `category`,
+# MAGIC `retailpulse_ai.gold.sales_features` — not one model per category. `category`,
 # MAGIC `product_id`, and `store_id` are included as model features instead, so
 # MAGIC the model still learns each series' distinct pattern while sharing
 # MAGIC learning across series (e.g. "how Diwali affects demand" generalizes
@@ -44,7 +44,7 @@ import matplotlib.pyplot as plt
 import mlflow
 from mlflow import MlflowClient
 
-CATALOG = "sales_ai"
+CATALOG = "retailpulse_ai"
 GOLD_SCHEMA = "gold"
 
 MODEL_NAME = f"{CATALOG}.{GOLD_SCHEMA}.sales_forecasting_lgbm"
@@ -405,4 +405,3 @@ print(f"Test WAPE: {model_test_metrics['WAPE']}%  (naive baseline: {baseline_tes
       f"{wape_improvement:.1f}% improvement)")
 
 # COMMAND ----------
-

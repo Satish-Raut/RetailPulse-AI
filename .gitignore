@@ -74,6 +74,10 @@ datasets/
 outputs/
 *.parquet
 
+# Backend source package (not generated project data)
+!backend/src/data/
+!backend/src/data/**
+
 # ==============================
 # Databricks
 # ==============================

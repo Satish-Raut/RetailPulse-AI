@@ -56,7 +56,7 @@ logger = logging.getLogger("sales_forecasting_api")
 
 app = FastAPI(
     title="Sales Forecasting API",
-    description="Serves retail sales forecast data from the Databricks gold layer (sales_ai.gold.forecast_results).",
+    description="Serves retail sales forecast data from the Databricks gold layer (retailpulse_ai.gold.forecast_results).",
     version="0.1.0",
 )
 
@@ -135,12 +135,12 @@ def _merge_points(history_rows: list[dict], forecast_rows: list[dict]) -> List[F
     description=(
         "Two modes, selected by `include_history`:\n\n"
         "- **include_history=false (default)** — unchanged: returns forecast rows as-is "
-        "from sales_ai.gold.forecast_results, filtered by product_id/store_id/category. "
+        "from retailpulse_ai.gold.forecast_results, filtered by product_id/store_id/category. "
         "Response shape: `{count, results}`.\n\n"
         "- **include_history=true** — merges real history with the model's forecast into "
         "one chronological timeline for a single series. **actual_units is sourced from "
-        "sales_ai.gold.sales_features; predicted_units is sourced from "
-        "sales_ai.gold.forecast_results.** Requires both product_id and store_id (400 if "
+        "retailpulse_ai.gold.sales_features; predicted_units is sourced from "
+        "retailpulse_ai.gold.forecast_results.** Requires both product_id and store_id (400 if "
         "either is missing — the merge only makes sense for one series at a time). "
         "Response shape: `{product_id, store_id, history_days, points}`, where each point "
         "has `actual_units` (past dates) or `predicted_units` (future dates), with the "
@@ -198,7 +198,7 @@ def get_forecast(
     response_model=List[ProductForecastGroup],
     summary="Get every predicted record, grouped by product",
     description=(
-        "Returns every row from sales_ai.gold.forecast_results (all products, all "
+        "Returns every row from retailpulse_ai.gold.forecast_results (all products, all "
         "stores, all dates), grouped by product_id. No query parameters, no filtering — "
         "a full, unrestricted dump for the multi-product view."
     ),
@@ -233,8 +233,8 @@ def get_forecast_trend_all() -> List[ProductForecastGroup]:
         "pipeline — it never generates or alters the predicted numbers. Groq generates "
         "the narrative, while the forecast summary remains computed by Python.**\n\n"
         "Step 1 computes a structured context dict directly in Python from "
-        "sales_ai.gold.forecast_results (the 30-day forecast), sales_ai.gold.sales_features "
-        "(last 90 days of actuals + engineered features), and sales_ai.silver.products "
+        "retailpulse_ai.gold.forecast_results (the 30-day forecast), retailpulse_ai.gold.sales_features "
+        "(last 90 days of actuals + engineered features), and retailpulse_ai.silver.products "
         "(static product attributes). Only that context is sent to Groq."
     ),
 )
@@ -321,7 +321,7 @@ def explain_forecast(request: ExplainRequest) -> ExplainResponse:
     "/products",
     response_model=List[Product],
     summary="List all products",
-    description="Returns every product from sales_ai.silver.products, for populating a product selector.",
+    description="Returns every product from retailpulse_ai.silver.products, for populating a product selector.",
 )
 def get_products() -> List[Product]:
     try:
@@ -340,7 +340,7 @@ def get_products() -> List[Product]:
     "/stores",
     response_model=List[Store],
     summary="List all stores",
-    description="Returns every store from sales_ai.silver.stores, for populating a store selector.",
+    description="Returns every store from retailpulse_ai.silver.stores, for populating a store selector.",
 )
 def get_stores() -> List[Store]:
     try:

@@ -23,7 +23,7 @@
 # MAGIC The project uses the following naming convention:
 # MAGIC
 # MAGIC - **Project:** `sales-ai`
-# MAGIC - **Catalog:** `sales_ai`
+# MAGIC - **Catalog:** `retailpulse_ai`
 # MAGIC - **Schemas:** `bronze`, `silver`, `gold`
 # MAGIC - **Raw Volume:** `raw_files`
 # MAGIC
@@ -35,14 +35,14 @@
 # MAGIC -- Create the project catalog.
 # MAGIC -- IF NOT EXISTS makes this command safe to execute multiple times.
 # MAGIC
-# MAGIC CREATE CATALOG IF NOT EXISTS sales_ai;
+# MAGIC CREATE CATALOG IF NOT EXISTS retailpulse_ai;
 
 # COMMAND ----------
 
 # MAGIC %sql
 # MAGIC -- Use the project catalog for all subsequent operations.
 # MAGIC
-# MAGIC USE CATALOG sales_ai;
+# MAGIC USE CATALOG retailpulse_ai;
 
 # COMMAND ----------
 
@@ -82,7 +82,6 @@
 # MAGIC %sql
 # MAGIC -- Create a governed Volume for raw project files.
 # MAGIC
-# MAGIC CREATE VOLUME IF NOT EXISTS sales_ai.bronze.raw_files;
+# MAGIC CREATE VOLUME IF NOT EXISTS retailpulse_ai.bronze.raw_files;
 
 # COMMAND ----------
-

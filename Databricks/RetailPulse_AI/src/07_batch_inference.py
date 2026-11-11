@@ -14,7 +14,7 @@
 # MAGIC This notebook loads the **Champion** model from the Unity Catalog Model
 # MAGIC Registry and generates a 30-day-ahead forecast for every
 # MAGIC `(product_id, store_id)` series, writing the result to
-# MAGIC `sales_ai.gold.forecast_results` — the table the GenAI microservice and
+# MAGIC `retailpulse_ai.gold.forecast_results` — the table the GenAI microservice and
 # MAGIC the UI dashboard both read from.
 # MAGIC
 # MAGIC **This uses recursive (iterative) forecasting**, as discussed earlier:
@@ -54,7 +54,7 @@ import numpy as np
 import pandas as pd
 import mlflow
 
-CATALOG = "sales_ai"
+CATALOG = "retailpulse_ai"
 SILVER_SCHEMA = "silver"
 GOLD_SCHEMA = "gold"
 
@@ -524,4 +524,3 @@ print(f"Forecast window: {forecast_dates[0].date()} to {forecast_dates[-1].date(
 print(f"Rows written: {len(forecast_df):,}")
 
 # COMMAND ----------
-

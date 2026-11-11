@@ -49,7 +49,7 @@ from delta.tables import DeltaTable
 
 # COMMAND ----------
 
-CATALOG = "sales_ai"
+CATALOG = "retailpulse_ai"
 BRONZE_SCHEMA = "bronze"
 
 RAW_PATH = f"/Volumes/{CATALOG}/{BRONZE_SCHEMA}/raw_files"
@@ -246,7 +246,7 @@ else:
 # COMMAND ----------
 
 # MAGIC %sql
-# MAGIC SHOW TABLES IN sales_ai.bronze;
+# MAGIC SHOW TABLES IN retailpulse_ai.bronze;
 
 # COMMAND ----------
 
@@ -259,4 +259,3 @@ for table in ["sales_transactions", "products", "stores", "calendar_marketing_ex
 print("Bronze ingestion completed successfully.")
 
 # COMMAND ----------
-

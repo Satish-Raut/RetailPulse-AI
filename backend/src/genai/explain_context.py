@@ -5,7 +5,7 @@ from statistics import mean
 from typing import Any, Optional
 
 # Same fixed-date holiday approach as reference_notebooks/07_batch_inference.py,
-# since forecast dates extend past what sales_ai.gold.sales_features' historical
+# since forecast dates extend past what retailpulse_ai.gold.sales_features' historical
 # calendar covers. Extend this dict as forecast dates move into new years.
 FIXED_FUTURE_HOLIDAYS = {
     "2026-01-01": ("New Year", "National"),
@@ -37,10 +37,10 @@ def build_forecast_context(
 ) -> dict[str, Any]:
     """Assemble the structured context used by the deterministic explanation.
 
-    forecast_rows: sales_ai.gold.forecast_results rows for this product/store
+    forecast_rows: retailpulse_ai.gold.forecast_results rows for this product/store
     (from db.fetch_forecasts). recent_features_rows: the last-N-days
-    sales_ai.gold.sales_features rows (from db.fetch_recent_sales_features).
-    product_static: sales_ai.silver.products attributes (from
+    retailpulse_ai.gold.sales_features rows (from db.fetch_recent_sales_features).
+    product_static: retailpulse_ai.silver.products attributes (from
     db.fetch_product_static), or None if the product isn't found there.
     """
 

@@ -49,7 +49,7 @@ sns.set_style("whitegrid")
 plt.rcParams["figure.figsize"] = (12, 5)
 plt.rcParams["axes.titleweight"] = "bold"
 
-CATALOG = "sales_ai"
+CATALOG = "retailpulse_ai"
 SILVER_SCHEMA = "silver"
 
 # COMMAND ----------
@@ -354,11 +354,10 @@ print(f"Average demand suppressed on stockout days: {suppressed_demand:.1f} unit
 # MAGIC - **Price sensitivity differs by category** — this justifies including price/discount features and category interaction terms.
 # MAGIC - **Stockouts genuinely suppress observed sales** below true demand — worth flagging as a real-world forecasting caveat (low sales isn't always low demand).
 # MAGIC
-# MAGIC **Next notebook:** Gold-layer feature engineering (lags, rolling windows, calendar, promotion, and price features) on top of `sales_ai.silver.sales_integrated`, followed by the gradient boosting forecasting model.
+# MAGIC **Next notebook:** Gold-layer feature engineering (lags, rolling windows, calendar, promotion, and price features) on top of `retailpulse_ai.silver.sales_integrated`, followed by the gradient boosting forecasting model.
 
 # COMMAND ----------
 
 print("Exploratory data analysis completed successfully.")
 
 # COMMAND ----------
-

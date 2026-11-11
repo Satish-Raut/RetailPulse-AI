@@ -26,5 +26,5 @@ targets:
       host: https://dbc-0101d67c-183e.cloud.databricks.com
       root_path: /Workspace/Sales-AI/.bundle/sales_ai/dev
     variables:
-      catalog: sales_ai
+      catalog: retailpulse_ai
       schema: ${workspace.current_user.short_name}
