@@ -104,7 +104,7 @@ def _to_date(value):
 
     return value.date() if isinstance(value, datetime) else value
 
-
+# NOTE : Merge The Historical data and forcasted data togeter to send as responce in GET /forcat API Endpoint
 def _merge_points(history_rows: list[dict], forecast_rows: list[dict]) -> List[ForecastPoint]:
     """Merge sales_features actuals and forecast_results predictions into one
     chronological timeline, keyed by date."""
@@ -127,7 +127,7 @@ def _merge_points(history_rows: list[dict], forecast_rows: list[dict]) -> List[F
 
     return [points[key] for key in sorted(points)]
 
-
+# NOTE : GET /Forcast End point
 @app.get(
     "/forecast",
     response_model=Union[ForecastListResponse, ForecastTrendResponse],
@@ -192,7 +192,7 @@ def get_forecast(
     records = [ForecastRecord(**row) for row in rows]
     return ForecastListResponse(count=len(records), results=records)
 
-
+# NOTE : This particular endpoint is basically returns the 30-days forcasted data
 @app.get(
     "/forecast/trend/all",
     response_model=List[ProductForecastGroup],
