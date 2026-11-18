@@ -1,0 +1,815 @@
+/* ============================================================
+   RetailPulse AI — Inventory Risk & Replenishment Styling
+   Human-Crafted Editorial / Warm Graphite & Emerald
+   Palette: #0c0e12 base · #15181f surface · #10b981 emerald · #f59e0b amber
+   High contrast, spacious typography, zero cramped/overlapping fields
+   ============================================================ */
+
+/* ── Page Layout ── */
+.inventory-page {
+  gap: 28px;
+}
+
+/* ── Header ── */
+.inventory-header {
+  gap: 8px;
+  padding-bottom: 22px;
+}
+
+.inventory-header .header-top-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.inventory-eyebrow {
+  margin: 0 0 6px;
+  color: var(--emerald);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.inventory-header-mark {
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+}
+
+.inventory-header h1 {
+  margin: 0;
+  color: var(--text-h);
+  font-size: clamp(30px, 3.8vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  line-height: 1.15;
+}
+
+.inventory-header .subtitle {
+  margin: 4px 0 0;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 860px;
+}
+
+/* ── Status Banner ── */
+.inventory-notice {
+  padding: 14px 20px;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 10px;
+  background: rgba(245, 158, 11, 0.09);
+  color: #fbbf24;
+  font-size: 14.5px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── Master Split Layout ── */
+.inventory-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(380px, 0.85fr);
+  gap: 24px;
+  align-items: start;
+}
+
+/* ── Panels Generic ── */
+.inventory-form-panel,
+.inventory-result,
+.inventory-empty-result,
+.inventory-action-panel,
+.inventory-alerts-panel {
+  padding: clamp(22px, 2.6vw, 32px);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 6px 24px rgba(0, 0, 0, 0.22);
+}
+
+/* ── Section Headings ── */
+.inventory-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 26px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.inventory-section-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1 1 auto;
+}
+
+.inventory-section-index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--emerald);
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+}
+
+.inventory-section-heading h2 {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 21px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.inventory-section-heading > p {
+  margin: 0;
+  max-width: 340px;
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.5;
+  text-align: right;
+}
+
+/* ── Form Styling ── */
+.inventory-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.inventory-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 22px;
+}
+
+.inventory-field {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.inventory-field--full {
+  grid-column: 1 / -1;
+}
+
+.inventory-field-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+  line-height: 1.3;
+}
+
+.inventory-field-hint {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.inventory-field-hint--accent {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.inventory-field input,
+.inventory-field select,
+.inventory-field textarea {
+  width: 100%;
+  min-height: 46px;
+  box-sizing: border-box;
+  padding: 11px 15px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface-2);
+  color: var(--text-h);
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 450;
+  outline: none;
+  color-scheme: dark;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.inventory-field input::placeholder,
+.inventory-field textarea::placeholder {
+  color: var(--text-dim);
+  font-size: 14.5px;
+}
+
+.inventory-field select {
+  appearance: auto;
+  cursor: pointer;
+}
+
+.inventory-field select option {
+  background: var(--surface);
+  color: var(--text-h);
+}
+
+.inventory-field textarea {
+  min-height: 94px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.inventory-field input:focus,
+.inventory-field select:focus,
+.inventory-field textarea:focus {
+  border-color: var(--emerald);
+  background: #212630;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.18);
+}
+
+.inventory-field input:disabled,
+.inventory-field select:disabled,
+.inventory-field textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.inventory-form-help {
+  margin: 2px 0 0;
+  color: var(--text-dim);
+  font-size: 13.5px;
+  line-height: 1.55;
+}
+
+.inventory-submit {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.inventory-submit span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* ── Result Column ── */
+.inventory-result-column {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ── Empty Evaluation State ── */
+.inventory-empty-result {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(16, 185, 129, 0.08), transparent 60%),
+    var(--surface);
+}
+
+.inventory-empty-icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 20px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--accent-border);
+  border-radius: 11px;
+  background: var(--accent-bg);
+  color: var(--emerald);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.inventory-empty-result h2 {
+  margin: 0 0 10px;
+  color: var(--text-h);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.inventory-empty-result p {
+  margin: 0;
+  max-width: 380px;
+  color: var(--text);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
+/* ── Evaluation Card ── */
+.inventory-result {
+  position: relative;
+  overflow: hidden;
+  border-left: 4px solid var(--emerald);
+}
+
+.inventory-result--stockout {
+  border-left-color: var(--rose);
+}
+
+.inventory-result--below_safety_stock {
+  border-left-color: var(--amber);
+}
+
+.inventory-result--unavailable {
+  border-left-color: var(--text-dim);
+}
+
+.inventory-result-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.inventory-result-heading h2 {
+  margin: 6px 0 0;
+  color: var(--text-h);
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: -0.4px;
+}
+
+.inventory-risk-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 13px;
+  border-radius: 7px;
+  border: 1px solid var(--accent-border);
+  background: var(--accent-bg);
+  color: var(--emerald);
+  font-size: 11.5px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.inventory-risk-tag--stockout {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: var(--rose-bg);
+  color: #f87171;
+}
+
+.inventory-risk-tag--below_safety_stock {
+  border-color: rgba(245, 158, 11, 0.4);
+  background: var(--amber-bg);
+  color: #fbbf24;
+}
+
+.inventory-risk-tag--unavailable {
+  border-color: var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.inventory-result-explanation {
+  margin: 18px 0 0;
+  color: #e2e8f0;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* ── Calculation Breakdown ── */
+.inventory-calculation {
+  margin-top: 22px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.inventory-calc-row {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.inventory-calc-row:last-child {
+  border-bottom: none;
+}
+
+.inventory-calc-label {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.inventory-calc-value {
+  color: var(--text-h);
+  font-size: 15px;
+  font-weight: 650;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.inventory-calc-value--pos {
+  color: var(--emerald);
+}
+
+.inventory-calc-value--neg {
+  color: var(--amber);
+}
+
+.inventory-calculation-total {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.inventory-calculation-total .inventory-calc-label {
+  color: var(--text-h);
+  font-weight: 600;
+}
+
+.inventory-calculation-total .inventory-calc-value {
+  color: var(--emerald);
+  font-size: 16.5px;
+  font-weight: 750;
+}
+
+.inventory-result--stockout .inventory-calculation-total .inventory-calc-value {
+  color: var(--rose);
+}
+
+.inventory-result--below_safety_stock .inventory-calculation-total .inventory-calc-value {
+  color: var(--amber);
+}
+
+.inventory-disclaimer {
+  margin: 18px 0 0;
+  color: var(--text-dim);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* ── Action Panel (Review Selected Alert) ── */
+.inventory-action-panel {
+  animation: fade-slide-up 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.inventory-action-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.inventory-action-form .inventory-field--wide {
+  grid-column: 1 / -1;
+}
+
+.inventory-action-submit {
+  grid-column: 1 / -1;
+  min-height: 46px;
+  font-size: 14.5px;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 178px;
+  padding: 11px 20px;
+}
+
+.inventory-action-submit span {
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* ── Decision History ── */
+.inventory-action-history {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.inventory-action-history h3 {
+  margin: 0 0 14px;
+  color: var(--text-h);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.inventory-action-history article {
+  padding: 13px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.inventory-action-history article > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.inventory-action-history strong {
+  color: var(--text-h);
+  font-weight: 650;
+  text-transform: capitalize;
+}
+
+.inventory-action-history time {
+  color: var(--text-dim);
+  font-size: 12.5px;
+}
+
+.inventory-action-history article > span {
+  display: inline-block;
+  color: var(--emerald);
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.inventory-action-history p {
+  margin: 6px 0 0;
+  color: var(--text);
+  font-size: 13.5px;
+}
+
+/* ── Alerts Table Panel ── */
+.inventory-alerts-panel {
+  margin-top: 0;
+}
+
+.inventory-muted {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.inventory-alert-container {
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.015);
+  overflow-x: auto;
+}
+
+/* ── Table Header Row ── */
+.inventory-alert-header-row {
+  display: grid;
+  grid-template-columns: 24px minmax(200px, 1.4fr) minmax(160px, 1fr) minmax(140px, 0.9fr) minmax(110px, 0.75fr) minmax(120px, 0.8fr) 28px;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 18px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-dim);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── Table Alert List & Rows ── */
+.inventory-alert-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.inventory-alert-row {
+  width: 100%;
+  min-height: 68px;
+  display: grid;
+  grid-template-columns: 24px minmax(200px, 1.4fr) minmax(160px, 1fr) minmax(140px, 0.9fr) minmax(110px, 0.75fr) minmax(120px, 0.8fr) 28px;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.16s ease, border-color 0.16s ease;
+}
+
+.inventory-alert-row:last-child {
+  border-bottom: none;
+}
+
+.inventory-alert-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.inventory-alert-row:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 2px solid var(--emerald);
+  outline-offset: -2px;
+}
+
+.inventory-alert-row--selected {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.inventory-alert-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.45);
+  display: block;
+}
+
+.inventory-alert-indicator--stockout {
+  background: var(--rose);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.inventory-alert-indicator--below_safety_stock {
+  background: var(--amber);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+
+.inventory-alert-product {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.inventory-alert-product strong {
+  color: var(--text-h);
+  font-size: 14.5px;
+  font-weight: 650;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inventory-alert-product small {
+  color: var(--text-dim);
+  font-size: 12.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inventory-alert-level-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  font-weight: 650;
+  width: fit-content;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-border);
+  color: var(--emerald);
+}
+
+.inventory-alert-level-badge--stockout {
+  background: var(--rose-bg);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #f87171;
+}
+
+.inventory-alert-level-badge--below_safety_stock {
+  background: var(--amber-bg);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.inventory-alert-stock {
+  color: var(--text);
+  font-size: 14px;
+}
+
+.inventory-alert-stock strong {
+  color: var(--text-h);
+  font-size: 15px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.inventory-alert-status {
+  display: inline-block;
+  padding: 4px 9px;
+  border-radius: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 11.5px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.inventory-alert-row time {
+  color: var(--text-dim);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.inventory-alert-open {
+  color: var(--emerald);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+  transition: transform 0.16s ease;
+}
+
+.inventory-alert-row:hover .inventory-alert-open {
+  transform: translateX(3px);
+}
+
+/* ── Responsive Media Queries ── */
+@media (max-width: 1040px) {
+  .inventory-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-result-column {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .inventory-header .header-top-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .inventory-header-mark {
+    display: none;
+  }
+
+  .inventory-section-heading {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .inventory-section-heading > p {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .inventory-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-action-form {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-action-form .inventory-field--wide,
+  .inventory-action-submit {
+    grid-column: 1;
+  }
+
+  .inventory-action-submit {
+    justify-self: stretch;
+  }
+
+  .inventory-alert-header-row,
+  .inventory-alert-row {
+    min-width: 780px;
+  }
+}

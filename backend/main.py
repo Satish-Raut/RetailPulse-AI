@@ -26,6 +26,7 @@ from src.genai.explain_context import build_forecast_context
 from src.genai.groq.chatbot import run_chat
 from src.genai.groq.client import GroqConfigError
 from src.genai.groq.forecast_explainer import generate_explanation
+from src.inventory.router import router as inventory_router
 from src.models.schemas import (
     ChatRequest,
     ChatResponse,
@@ -73,6 +74,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(inventory_router)
 
 
 @app.get(

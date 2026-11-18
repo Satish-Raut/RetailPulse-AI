@@ -21,6 +21,9 @@ function Layout() {
           <NavLink to="/analytics" className={navLinkClass}>
             Analytics Chat
           </NavLink>
+          <NavLink to="/inventory" className={navLinkClass}>
+            Inventory
+          </NavLink>
         </div>
       </nav>
       <Outlet />

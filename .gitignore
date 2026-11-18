@@ -77,6 +77,8 @@ outputs/
 # Backend source package (not generated project data)
 !backend/src/data/
 !backend/src/data/**
+!backend/src/models/
+!backend/src/models/**
 
 # ==============================
 # Databricks

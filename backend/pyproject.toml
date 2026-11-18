@@ -21,6 +21,7 @@ dependencies = [
     "openai",
     "databricks-sdk",
     "python-multipart",
+    "pymongo",
 ]
 
 [tool.uv]
