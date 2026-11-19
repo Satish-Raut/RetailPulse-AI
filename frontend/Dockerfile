@@ -11,12 +11,11 @@ FROM node:22-alpine AS build
 # Set the working directory inside the container.
 WORKDIR /app
 
-# Copy package.json and package-lock.json first.
-# This helps Docker cache the dependency installation layer.
+# Copy package manifests first so dependency installation can be cached.
 COPY package*.json ./
 
-# Install all project dependencies.
-RUN npm install
+# Install the exact dependency versions recorded in package-lock.json.
+RUN npm ci
 
 # Copy the remaining frontend source code into /app.
 COPY . .
@@ -44,6 +43,7 @@ FROM nginx:alpine
 # /app/dist contains the generated HTML, CSS and JavaScript files.
 # Nginx serves these files from /usr/share/nginx/html.
 COPY --from=build /app/dist /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Document that the container listens on port 80.
 EXPOSE 80
